@@ -16,6 +16,7 @@
   dbus,
   systemd,
   bash,
+  fakeroot,
   gobject-introspection,
 }:
 
@@ -66,13 +67,15 @@ python3Packages.buildPythonApplication rec {
 
   dontUseCmakeConfigure = true;
 
-  dependencies = with python3Packages; [
+  dependencies = (with python3Packages; [
     pygobject3
     httpx
     pyyaml
     aiofiles
     dbus-python
-  ];
+  ]) ++ (with pkgs; [
+    fakeroot
+  ]);
 
   strictDeps = true;
 
