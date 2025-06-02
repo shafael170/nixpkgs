@@ -237,6 +237,7 @@ mapAliases {
   adminer-pematon = adminneo; # Added 2025-02-20
   adminerneo = adminneo; # Added 2025-02-27
   adtool = throw "'adtool' has been removed, as it was broken and unmaintained";
+  adobe-reader = throw "'adobe-reader' has been removed, as it was broken, outdated and insecure"; # added 2025-05-31
   adom = throw "'adom' has been removed, as it was broken and unmaintained"; # added 2024-05-09
   adoptopenjdk-bin = throw "adoptopenjdk has been removed as the upstream project is deprecated. Consider using `temurin-bin`"; # Added 2024-05-09
   adoptopenjdk-bin-17-packages-darwin = throw "adoptopenjdk has been removed as the upstream project is deprecated. Consider using `temurin-bin-17`."; # Added 2024-05-09
@@ -318,6 +319,7 @@ mapAliases {
   authy = throw "'authy' has been removed since it reached end of life"; # Added 2024-04-19
   autoadb = throw "'autoadb' has been removed due to lack of maintenance upstream"; # Added 2025-01-25
   avldrums-lv2 = throw "'avldrums-lv2' has been renamed to/replaced by 'x42-avldrums'"; # Converted to throw 2024-10-17
+  avr-sim = throw "'avr-sim' has been removed as it was broken and unmaintained. Possible alternatives are 'simavr', SimulAVR and AVRStudio."; # Added 2025-05-31
   avrlibcCross = avrlibc; # Added 2024-09-06
   axmldec = throw "'axmldec' has been removed as it was broken and unmaintained for 8 years"; # Added 2025-05-17
   awesome-4-0 = awesome; # Added 2022-05-05
@@ -446,6 +448,7 @@ mapAliases {
   CoinMP = coinmp; # Added 2024-06-12
   collada-dom = opencollada; # added 2024-02-21
   colorpicker = throw "'colorpicker' has been removed due to lack of maintenance upstream. Consider using 'xcolor', 'gcolor3', 'eyedropper' or 'gpick' instead"; # Added 2024-10-19
+  connman-ncurses = throw "'connman-ncurses' has been removed due to lack of maintenance upstream."; # Added 2025-05-27
   coriander = throw "'coriander' has been removed because it depends on GNOME 2 libraries"; # Added 2024-06-27
   corretto19 = throw "Corretto 19 was removed as it has reached its end of life"; # Added 2024-08-01
   cosmic-tasks = tasks; # Added 2024-07-04
@@ -770,6 +773,7 @@ mapAliases {
     svn_all_fast_export = svn-all-fast-export;
     topGit = top-git;
   }; # Added 2021-01-14
+  github-copilot-cli = throw "'github-copilot-cli' has been removed because GitHub has replaced it with 'gh-copilot'."; # Added 2025-06-01
   givaro_3 = throw "'givaro_3' has been removed as it is end-of-life. Consider using the up-to-date 'givaro' instead"; # Added 2025-05-07
   givaro_3_7 = throw "'givaro_3_7' has been removed as it is end-of-life. Consider using the up-to-date 'givaro' instead"; # Added 2025-05-07
   gkraken = throw "'gkraken' has been deprecated by upstream. Consider using the replacement 'coolercontrol' instead."; # Added 2024-11-22
@@ -1476,6 +1480,7 @@ mapAliases {
   partition-manager = makePlasma5Throw "partitionmanager"; # Added 2024-01-08
   patchelfStable = patchelf; # Added 2024-01-25
   paup = paup-cli; # Added 2024-09-11
+  pcre16 = throw "'pcre16' has been removed because it is obsolete. Consider migrating to 'pcre2' instead."; # Added 2025-05-29
   pcsctools = pcsc-tools; # Added 2023-12-07
   pcsxr = throw "pcsxr was removed as it has been abandoned for over a decade; please use DuckStation, Mednafen, or the RetroArch PCSX ReARMed core"; # Added 2024-08-20
   pdf4tcl = tclPackages.pdf4tcl; # Added 2024-10-02
@@ -1501,6 +1506,7 @@ mapAliases {
   pipewire-media-session = throw "pipewire-media-session is no longer maintained and has been removed. Please use Wireplumber instead.";
   platypus = throw "platypus is unmaintained and has not merged Python3 support"; # Added 2025-03-20
   pleroma-otp = throw "'pleroma-otp' has been renamed to/replaced by 'pleroma'"; # Converted to throw 2024-10-17
+  plex-media-player = throw "'plex-media-player' has been discontinued, the new official client is available as 'plex-desktop'"; # Added 2025-05-28
   plots = throw "'plots' has been replaced by 'gnome-graphs'"; # Added 2025-02-05
   pltScheme = racket; # just to be sure
   poac = cabinpkg; # Added 2025-01-22
@@ -1883,6 +1889,7 @@ mapAliases {
   testVersion = testers.testVersion; # Added 2022-04-20
   tfplugindocs = terraform-plugin-docs; # Added 2023-11-01
   thiefmd = throw "'thiefmd' has been removed due to lack of maintenance upstream and incompatible with newer Pandoc. Please use 'apostrophe' or 'folio' instead"; # Added 2025-02-20
+  thefuck = throw "'thefuck' has been removed due to lack of maintenance upstream and incompatible with python 3.12+. Consider using 'pay-respects' instead"; # Added 2025-05-30
   invalidateFetcherByDrvHash = testers.invalidateFetcherByDrvHash; # Added 2022-05-05
   tijolo = throw "'tijolo' has been removed due to being unmaintained"; # Added 2024-12-27
   timescale-prometheus = throw "'timescale-prometheus' has been renamed to/replaced by 'promscale'"; # Converted to throw 2024-10-17
@@ -2017,6 +2024,7 @@ mapAliases {
   wal_e = throw "wal_e was removed as it is unmaintained upstream and depends on the removed boto package; upstream recommends using wal-g or pgbackrest"; # Added 2024-09-22
   wapp = tclPackages.wapp; # Added 2024-10-02
   wasm-bindgen-cli = wasm-bindgen-cli_0_2_100;
+  watershot = throw "'watershot' has been removed as it is unmaintained upstream and no longer works"; # Added 2025-06-01
   wayfireApplications-unwrapped = throw ''
     'wayfireApplications-unwrapped.wayfire' has been renamed to/replaced by 'wayfire'
     'wayfireApplications-unwrapped.wayfirePlugins' has been renamed to/replaced by 'wayfirePlugins'
@@ -2033,7 +2041,7 @@ mapAliases {
   wireguard-vanity-address = throw "'wireguard-vanity-address' has been removed due to lack of upstream maintenance"; # Added 2025-01-26
   wkhtmltopdf-bin = wkhtmltopdf; # Added 2024-07-17
   wlroots_0_16 = throw "'wlroots_0_16' has been removed in favor of newer versions"; # Added 2024-07-14
-  wlroots = wlroots_0_18; # wlroots is unstable, we must keep depending on 'wlroots_0_*', convert to package after a stable(1.x) release
+  wlroots = wlroots_0_19; # wlroots is unstable, we must keep depending on 'wlroots_0_*', convert to package after a stable(1.x) release
   wordpress6_3 = throw "'wordpress6_3' has been removed in favor of the latest version"; # Added 2024-08-03
   wordpress6_4 = throw "'wordpress6_4' has been removed in favor of the latest version"; # Added 2024-08-03
   wordpress6_5 = wordpress_6_5; # Added 2024-08-03

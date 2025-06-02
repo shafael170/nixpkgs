@@ -984,6 +984,8 @@ self: super: with self; {
 
   asyauth = callPackage ../development/python-modules/asyauth { };
 
+  asyauth-bad = callPackage ../development/python-modules/asyauth-bad { };
+
   async-cache = callPackage ../development/python-modules/async-cache { };
 
   async-dns = callPackage ../development/python-modules/async-dns { };
@@ -2300,6 +2302,10 @@ self: super: with self; {
 
   cbor2 = callPackage ../development/python-modules/cbor2 { };
 
+  cbor2WithoutCExtensions = callPackage ../development/python-modules/cbor2 {
+    withCExtensions = false;
+  };
+
   cccolutils = callPackage ../development/python-modules/cccolutils { krb5-c = pkgs.krb5; };
 
   cdcs = callPackage ../development/python-modules/cdcs { };
@@ -2361,6 +2367,8 @@ self: super: with self; {
   cffsubr = callPackage ../development/python-modules/cffsubr { };
 
   cfgv = callPackage ../development/python-modules/cfgv { };
+
+  cflib = callPackage ../development/python-modules/cflib { };
 
   cfn-flip = callPackage ../development/python-modules/cfn-flip { };
 
@@ -2695,6 +2703,8 @@ self: super: with self; {
 
   colcon-notification = callPackage ../development/python-modules/colcon-notification { };
 
+  colcon-output = callPackage ../development/python-modules/colcon-output { };
+
   colcon-parallel-executor = callPackage ../development/python-modules/colcon-parallel-executor { };
 
   colcon-ros-domain-id-coordinator =
@@ -2871,9 +2881,15 @@ self: super: with self; {
 
   coordinates = callPackage ../development/python-modules/coordinates { };
 
+  copier = callPackage ../development/python-modules/copier { };
+
+  copier-template-tester = callPackage ../development/python-modules/copier-template-tester { };
+
   copykitten = callPackage ../development/python-modules/copykitten { };
 
   coqpit = callPackage ../development/python-modules/coqpit { };
+
+  corallium = callPackage ../development/python-modules/corallium { };
 
   coreapi = callPackage ../development/python-modules/coreapi { };
 
@@ -7793,6 +7809,14 @@ self: super: with self; {
 
   lexilang = callPackage ../development/python-modules/lexilang { };
 
+  lgpio = toPythonModule (
+    pkgs.lgpio.override {
+      inherit buildPythonPackage;
+      pyProject = "PY_LGPIO";
+      lgpioWithoutPython = pkgs.lgpio;
+    }
+  );
+
   lhapdf = toPythonModule (pkgs.lhapdf.override { python3 = python; });
 
   lib4package = callPackage ../development/python-modules/lib4package { };
@@ -7800,6 +7824,8 @@ self: super: with self; {
   lib4sbom = callPackage ../development/python-modules/lib4sbom { };
 
   lib4vex = callPackage ../development/python-modules/lib4vex { };
+
+  lib50 = callPackage ../development/python-modules/lib50 { };
 
   libagent = callPackage ../development/python-modules/libagent { };
 
@@ -8018,6 +8044,10 @@ self: super: with self; {
 
   libtorrent-rasterbar =
     (toPythonModule (pkgs.libtorrent-rasterbar.override { python3 = python; })).python;
+
+  libusb-package = callPackage ../development/python-modules/libusb-package {
+    inherit (pkgs) libusb1;
+  };
 
   libusb1 = callPackage ../development/python-modules/libusb1 { inherit (pkgs) libusb1; };
 
@@ -8541,7 +8571,9 @@ self: super: with self; {
 
   marisa = callPackage ../development/python-modules/marisa { inherit (pkgs) marisa; };
 
-  marisa-trie = callPackage ../development/python-modules/marisa-trie { };
+  marisa-trie = callPackage ../development/python-modules/marisa-trie {
+    marisa-cpp = pkgs.marisa;
+  };
 
   markdown = callPackage ../development/python-modules/markdown { };
 
@@ -8633,12 +8665,10 @@ self: super: with self; {
 
   mayavi = pkgs.libsForQt5.callPackage ../development/python-modules/mayavi {
     inherit buildPythonPackage pythonOlder pythonAtLeast;
-    # when next release contains numpy2 support unpin
-    # https://github.com/enthought/mayavi/pull/1315
     inherit (self)
       pyface
       pygments
-      numpy_1
+      numpy
       packaging
       vtk
       traitsui
@@ -8917,6 +8947,8 @@ self: super: with self; {
   minikanren = callPackage ../development/python-modules/minikanren { };
 
   minikerberos = callPackage ../development/python-modules/minikerberos { };
+
+  minikerberos-bad = callPackage ../development/python-modules/minikerberos-bad { };
 
   minimal-snowplow-tracker = callPackage ../development/python-modules/minimal-snowplow-tracker { };
 
@@ -9259,6 +9291,8 @@ self: super: with self; {
   msgspec = callPackage ../development/python-modules/msgspec { };
 
   msldap = callPackage ../development/python-modules/msldap { };
+
+  msldap-bad = callPackage ../development/python-modules/msldap-bad { };
 
   mslex = callPackage ../development/python-modules/mslex { };
 
@@ -11056,8 +11090,6 @@ self: super: with self; {
 
   peppercorn = callPackage ../development/python-modules/peppercorn { };
 
-  percol = callPackage ../development/python-modules/percol { };
-
   perfplot = callPackage ../development/python-modules/perfplot { };
 
   periodictable = callPackage ../development/python-modules/periodictable { };
@@ -11175,6 +11207,12 @@ self: super: with self; {
   piep = callPackage ../development/python-modules/piep { };
 
   piexif = callPackage ../development/python-modules/piexif { };
+
+  pigpio = toPythonModule (
+    pkgs.pigpio.override {
+      inherit buildPythonPackage;
+    }
+  );
 
   pijuice = callPackage ../development/python-modules/pijuice { };
 
@@ -11725,8 +11763,6 @@ self: super: with self; {
   pueblo = callPackage ../development/python-modules/pueblo { };
 
   pulp = callPackage ../development/python-modules/pulp { };
-
-  pulsar = callPackage ../development/python-modules/pulsar { };
 
   pulsar-client = callPackage ../development/python-modules/pulsar-client { };
 
@@ -12893,6 +12929,8 @@ self: super: with self; {
   pymupdf = callPackage ../development/python-modules/pymupdf { };
 
   pymupdf-fonts = callPackage ../development/python-modules/pymupdf-fonts { };
+
+  pymupdf4llm = callPackage ../development/python-modules/pymupdf4llm { };
 
   pymvglive = callPackage ../development/python-modules/pymvglive { };
 
@@ -14684,6 +14722,8 @@ self: super: with self; {
 
   pyyaml-env-tag = callPackage ../development/python-modules/pyyaml-env-tag { };
 
+  pyyaml-ft = callPackage ../development/python-modules/pyyaml-ft { };
+
   pyyaml-include = callPackage ../development/python-modules/pyyaml-include { };
 
   pyyardian = callPackage ../development/python-modules/pyyardian { };
@@ -15198,6 +15238,13 @@ self: super: with self; {
   rfcat = callPackage ../development/python-modules/rfcat { };
 
   rflink = callPackage ../development/python-modules/rflink { };
+
+  rgpio = toPythonModule (
+    pkgs.lgpio.override {
+      inherit buildPythonPackage;
+      pyProject = "PY_RGPIO";
+    }
+  );
 
   rich = callPackage ../development/python-modules/rich { };
 
@@ -18635,7 +18682,7 @@ self: super: with self; {
 
   uuid6 = callPackage ../development/python-modules/uuid6 { };
 
-  uv = callPackage ../development/python-modules/uv { };
+  uv = callPackage ../development/python-modules/uv { inherit (pkgs) uv; };
 
   uv-build = callPackage ../development/python-modules/uv-build { };
 
@@ -19101,6 +19148,8 @@ self: super: with self; {
   wled = callPackage ../development/python-modules/wled { };
 
   wn = callPackage ../development/python-modules/wn { };
+
+  wokkel = callPackage ../development/python-modules/wokkel { };
 
   wolf-comm = callPackage ../development/python-modules/wolf-comm { };
 
