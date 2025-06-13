@@ -61,6 +61,7 @@ python3Packages.buildPythonApplication rec {
     libxml2
     libadwaita
     dbus
+    bash
     systemd
   ];
 
